@@ -5,25 +5,28 @@ import {
 	INodeProperties,
 } from 'n8n-workflow';
 
-export class HttpBinApi implements ICredentialType {
-	name = 'httpbinApi';
-	displayName = 'HttpBin API';
-	documentationUrl = '<your-docs-url>';
+export class KontofluxApi implements ICredentialType {
+	name = 'kontofluxApi';
+	displayName = 'Kontoflux.io API';
+	documentationUrl = 'https://api.kontoflux.io';
 	properties: INodeProperties[] = [
 		{
-			displayName: 'Token',
-			name: 'token',
+			displayName: 'API-Key',
+			name: 'apiKey',
 			type: 'string',
 			default: '',
+			required: true,
 			typeOptions: {
 				password: true,
 			}
 		},
 		{
-			displayName: 'Domain',
-			name: 'domain',
+			displayName: 'Workspace ID',
+			name: 'workspaceId',
 			type: 'string',
-			default: 'https://httpbin.org',
+			required: true,
+			placeholder: 's0m3w0rksp4ce',
+			default: '',
 		},
 	];
 
@@ -35,7 +38,7 @@ export class HttpBinApi implements ICredentialType {
 		type: 'generic',
 		properties: {
 			headers: {
-				Authorization: '={{"Bearer " + $credentials.token}}',
+				Authorization: '={{"Bearer " + $credentials.apiKey}}',
 			},
 		},
 	};
@@ -43,8 +46,8 @@ export class HttpBinApi implements ICredentialType {
 	// The block below tells how this credential can be tested
 	test: ICredentialTestRequest = {
 		request: {
-			baseURL: '={{$credentials?.domain}}',
-			url: '/bearer',
+			baseURL: '={{"https://api.kontoflux.io/v1/" + $credentials?.workspaceId.trim()}}',
+			url: '/key/scope',
 		},
 	};
 }

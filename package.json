@@ -1,19 +1,28 @@
 {
-  "name": "n8n-nodes-<...>",
+  "name": "n8n-nodes-kontoflux",
   "version": "0.1.0",
-  "description": "",
+  "description": "Kontoflux.io Node for n8n",
   "keywords": [
-    "n8n-community-node-package"
+    "n8n-community-node-package",
+    "n8n-node",
+    "n8n-node-package",
+    "banking",
+    "accounting",
+    "finance",
+    "automation",
+    "kontoflux",
+    "kontoflux.io",
+    "bankaccount-automation"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://kontoflux.io",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "Kontoflux.io",
+    "email": "support@kontoflux.io"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/<...>/n8n-nodes-<...>.git"
+    "url": "https://github.com/kontoflux-io/n8n-nodes-kontoflux.git"
   },
   "engines": {
     "node": ">=18.10",
@@ -22,7 +31,6 @@
   "packageManager": "pnpm@9.1.4",
   "main": "index.js",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "build": "tsc && gulp build:icons",
     "dev": "tsc --watch",
     "format": "prettier nodes credentials --write",
@@ -36,12 +44,10 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/ExampleCredentialsApi.credentials.js",
-      "dist/credentials/HttpBinApi.credentials.js"
+      "dist/credentials/KontofluxApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/ExampleNode/ExampleNode.node.js",
-      "dist/nodes/HttpBin/HttpBin.node.js"
+      "dist/nodes/Kontoflux/Kontoflux.node.js"
     ]
   },
   "devDependencies": {

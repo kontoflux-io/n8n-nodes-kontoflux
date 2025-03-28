@@ -1,0 +1,19 @@
+{
+	"node": "n8n-nodes-kontoflux",
+	"nodeVersion": "0.1",
+	"codexVersion": "0.1",
+	"categories": ["Finance & Accounting"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://api.kontoflux.io"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://api.kontoflux.io"
+			}
+		]
+	},
+	"alias": ["bankflux"]
+}
